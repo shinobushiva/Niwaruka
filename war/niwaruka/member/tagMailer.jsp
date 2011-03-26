@@ -5,7 +5,7 @@
 <%@taglib prefix="f" uri="http://www.slim3.org/functions"%>
 
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
 <meta charset="utf-8">
 <meta name="Content-Script-Type" content="text/javascript" />

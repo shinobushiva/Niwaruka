@@ -1,21 +1,21 @@
-<!-- Indices written at Sat, 26 Mar 2011 20:18:58 UTC -->
+<!-- Indices written at Sat, 26 Mar 2011 20:48:05 UTC -->
 
 <datastore-indexes>
 
-    <!-- Used 140 times in query history -->
+    <!-- Used 214 times in query history -->
     <datastore-index kind="TagTweet" ancestor="false" source="auto">
         <property name="tagKey" direction="asc"/>
         <property name="time" direction="desc"/>
     </datastore-index>
 
-    <!-- Used 127 times in query history -->
+    <!-- Used 199 times in query history -->
     <datastore-index kind="TagPermissionRequest" ancestor="false" source="auto">
         <property name="owner" direction="asc"/>
         <property name="state" direction="asc"/>
         <property name="time" direction="desc"/>
     </datastore-index>
 
-    <!-- Used 216 times in query history -->
+    <!-- Used 360 times in query history -->
     <datastore-index kind="TagTweet" ancestor="false" source="auto">
         <property name="tagKey" direction="asc"/>
         <property name="time" direction="asc"/>
