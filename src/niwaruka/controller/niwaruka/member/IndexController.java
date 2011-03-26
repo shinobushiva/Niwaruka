@@ -26,30 +26,25 @@ public class IndexController extends Controller {
     @Override
     public Navigation run() throws Exception {
 
-        String str = (String) sessionScope("user");
-        if (str != null) {
-            User user =
-                ls
-                    .getUser((String) sessionScope(LoginController.USER_ID_SESSION_KEY));
-            requestScope("userData", ls.getUserData(str));
+        User user =
+            ls
+                .getUser((String) sessionScope(LoginController.USER_ID_SESSION_KEY));
+        requestScope("userData", ls.getUserData(user));
 
-            if (user != null) {
-                List<Tag> list = Datastore.get(Tag.class, user.getTags());
-                requestScope("tags", list);
+        if (user != null) {
+            List<Tag> list = Datastore.get(Tag.class, user.getTags());
+            requestScope("tags", list);
 
-                List<Tag> cl = new ArrayList<Tag>(list);
-                if (user.getDisabledTags() != null) {
-                    List<Tag> tl =
-                        Datastore.get(Tag.class, user.getDisabledTags());
-                    cl.removeAll(tl);
-                    requestScope("disabledTags", tl);
-                }
-                requestScope("enabledTags", cl);
+            List<Tag> cl = new ArrayList<Tag>(list);
+            if (user.getDisabledTags() != null) {
+                List<Tag> tl = Datastore.get(Tag.class, user.getDisabledTags());
+                cl.removeAll(tl);
+                requestScope("disabledTags", tl);
             }
-
-            ts.fetchFromTwitter(str, tweetService, ls);
-
+            requestScope("enabledTags", cl);
         }
+
+        ts.fetchFromTwitter(user.getName(), tweetService, ls);
 
         return forward("index.jsp");
     }

@@ -145,9 +145,7 @@ function makeTweetBlock(t,  noModify){
 			+ '<a href="javascript:reply('+ t.key.id+');"><img src="/resources/reply.png"/></a>'
 			+ "</span>";
 	}
-	console.log(t.userDataRef.key.id);
-	console.log(gUserId);
-	if(!noModify && gUserId == t.userDataRef.key.id ){
+	if(!noModify && gUserId && gUserId == t.userDataRef.key.id ){
 		text +='<span class="icons">'
 			+ '<a href="javascript:remove('+ t.key.id+');"><img src="/resources/delete.png"/></a>'
 			+ "</span>";

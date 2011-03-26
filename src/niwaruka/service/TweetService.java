@@ -33,7 +33,30 @@ public class TweetService {
 
     TwitterService ts = new TwitterService();
 
+    /**
+     * @deprecated use addTweet(String content, User user, LoginService
+     *             ls,List<Tag> tags)
+     * @param content
+     * @param user
+     * @param ls
+     */
     public void addTweet(String content, User user, LoginService ls) {
+
+        List<Key> tagKeys = new ArrayList<Key>(user.getTags());
+        tagKeys.removeAll(user.getDisabledTags());
+
+        List<Tag> tags = new ArrayList<Tag>();
+        for (Key tagKey : tagKeys) {
+            Tag tag = Datastore.get(Tag.class, tagKey);
+            tags.add(tag);
+        }
+
+        this.addTweet(content, user, ls, tags);
+
+    }
+
+    public void addTweet(String content, User user, LoginService ls,
+            List<Tag> tags) {
 
         UserData userData = ls.getUserData(user);
 
@@ -44,12 +67,7 @@ public class TweetService {
         tweet.setTime(time);
         tweet.getUserDataRef().setModel(userData);
 
-        List<Key> tags = new ArrayList<Key>(user.getTags());
-        tags.removeAll(user.getDisabledTags());
-        for (Key tagKey : tags) {
-            Tag tag = Datastore.get(Tag.class, tagKey);
-            tweet.getTagList().add(tag);
-        }
+        tweet.setTagList(tags);
 
         this.addTweet(tweet, user, ls);
 

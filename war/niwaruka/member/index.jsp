@@ -49,6 +49,12 @@
 		$('#tweetButton').click(function() {
 			tweet();
 		});
+		$('#tweetBox').keydown(function (e) {
+			  if (e.shiftKey && e.keyCode == 13) {
+			    tweet();
+			    return false;
+			  }
+		});
 	});
 
 	$(document).ready(function() {
@@ -187,7 +193,7 @@
 			<%-- 発言ボックス --%>
 			<div class="tweet-box-div">
 				<form id="tweetForm" action="tweet" method="post">
-					<textarea title="いまなにしてる？" class="tweet-box" name="tweet"></textarea>
+					<textarea id="tweetBox" title="いまなにしてる？" class="tweet-box" name="tweet"></textarea>
 					<input id="tweetButton" type="button" value="にわるかる" />
 				</form>
 			</div>

@@ -19,11 +19,17 @@ var maxTrial = 3;
  */
 function tweet() {
 	f = $("#tweetForm");
-
+	
+	var tags = "";
+	$('.tag-toggled').each(function(){
+		var sss = $(this).attr('for').replace('check-','tagArray=');
+		tags+=""+sss+"&";
+	});
+	
 	$.ajax({
 		type : 'post',
 		url : '/niwaruka/member/tweetJson',
-		data : f.serialize(),
+		data : f.serialize()+"&"+tags,
 		success : function(json) {
 			clearForm($(f));
 			refresh();

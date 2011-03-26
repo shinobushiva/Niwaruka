@@ -1,15 +1,21 @@
 package niwaruka.controller.niwaruka.member;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import jp.co.topgate.controller.JsonController;
 import niwaruka.controller.niwaruka.login.LoginController;
+import niwaruka.model.Tag;
 import niwaruka.model.User;
 import niwaruka.service.LoginService;
 import niwaruka.service.TweetService;
 
+import org.slim3.datastore.Datastore;
 import org.slim3.util.BeanUtil;
+
+import com.google.appengine.api.datastore.Key;
 
 public class TweetJsonController extends JsonController {
 
@@ -30,7 +36,16 @@ public class TweetJsonController extends JsonController {
         User user =
             ls.getUser(sessionScope(LoginController.USER_ID_SESSION_KEY));
 
-        tweetService.addTweet(f.getTweet(), user, ls);
+        String[] ta = (String[]) requestScope("tagArray");
+        List<Tag> tags = new ArrayList<Tag>();
+        for (String tagStr : ta) {
+            Long l = Long.parseLong(tagStr);
+            Key key = Datastore.createKey(Tag.class, l);
+            Tag tag = Datastore.get(Tag.class, key);
+            tags.add(tag);
+        }
+
+        tweetService.addTweet(f.getTweet(), user, ls, tags);
 
         return map;
     }
