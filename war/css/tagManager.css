@@ -1,0 +1,75 @@
+@CHARSET "utf-8";
+
+section {
+	padding: 20px 20px 10px 20px;
+}
+
+.boxed {
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	border: 1px solid #c75078;
+	background-color: #FFF;
+	display: block;
+	font-size: 0.9em;
+	margin: 20px;
+	padding: 5px 5px 5px 5px;
+	text-shadow: 0 1px 0 #FFF;
+}
+
+.inline {
+	display: inline;
+}
+
+.top {
+	margin-top: 0px;
+	height: 100px;
+	border: 1px dashed #c75078;
+}
+
+.left {
+	margin-top: 0px;
+	margin-right: 0px;
+	height: 220px;
+	width: 500px;
+	float: left;
+	margin-bottom: 0px;
+	border: 1px solid #c75078;
+}
+
+.right {
+	margin-top: 0px;
+	height: 220px;
+	width: 320px;
+	float: right;
+	margin-bottom: 0px;
+	border: 1px dashed #c75078;
+}
+
+.field_value input {
+	font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo UI', 'ＭＳ Ｐゴシック', sans-serif;
+	background: #FFF;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	border: 1px solid #c75078;
+	height: 1.5em;
+	line-height: 1.5em;
+	font-size: 1em;
+	width: 12em;
+}
+
+.postButton {
+	background: #FFF;
+	height: 2em;
+	font-size: 1em;
+}
+.postLabel {
+	background: #FFF;
+	height: 1.5em;
+	font-size: 0.8em;
+}
+
+.red {
+	color: red;
+}

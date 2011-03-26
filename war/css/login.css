@@ -1,0 +1,115 @@
+article form {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+#container {
+    width:908px;
+    overflow: hidden; 
+    position: relative; 
+    zoom:1; 
+    background-color: #FFF;
+}
+
+
+#shinki {
+	margin-top: 20px;
+	float: left;
+	width: 600px;	/* ‚Ä‚«‚Æ[‚Å‚·B’N‚©‘ª‚Á‚ÄcB */
+}
+
+#login {
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	background: none repeat scroll 0 0 rgba(255, 0, 0, 0.1);
+	border: 1px solid #c75078;
+	cursor: auto;
+	font-size: 0.8em;
+	margin: 20px;
+	text-shadow: 0px 1px 0px #FFF;
+	z-index: 2;
+	background-color: rgba(255, 0, 0, 0.1);
+	padding: 5px 0px 5px 5px;
+	width: 240px;
+	float: right;
+}
+
+#login td, th{
+	padding-top: 4px;
+	text-align: left;
+}
+
+.field_name {
+	text-align: right;
+	white-space: nowrap;
+}
+
+
+.field_value input {
+	font-family: 'ƒqƒ‰ƒMƒmŠpƒS Pro W3','Hiragino Kaku Gothic Pro','ƒƒCƒŠƒI','Meiryo UI','‚l‚r ‚oƒSƒVƒbƒN',sans-serif;
+	background: #FFF;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	border: 1px solid #c75078;
+	height: 2.2em;
+	line-height: 2.2em;
+	font-size: 1em;
+	width: 10em;
+}
+
+.shinki-button {
+	font-family:'ƒqƒ‰ƒMƒmŠpƒS Pro W3', 'Hiragino Kaku Gothic Pro', 'ƒƒCƒŠƒI', 'Meiryo UI', '‚l‚r ‚oƒSƒVƒbƒN', sans-serif;
+	color: #960C32;
+	-webkit-border-radius: 32px;
+	-moz-border-radius: 32px;
+	border-radius: 32px;
+	width: 40%;
+	background: #FFE5E5;
+	background: -moz-linear-gradient(top, #FFE5E5, #FFCDCD);
+	background: -webkit-gradient(linear, left top, left bottom, from(#FFE5E5), to(#FFCDCD));
+	border: 1px solid #c75078;
+	cursor: pointer;
+	font-size: 1em;
+	text-shadow: 0 1px 0 #FFF;
+	text-align: center;
+	height: 3em;
+}
+
+.shinki-button:hover {
+	background: #FFB4B4;
+	background: -moz-linear-gradient(top, #FFE5E5, #FFB4B4);
+	background: -webkit-gradient(linear, left top, left bottom, from(#FFE5E5), to(#FFB4B4)); 
+	cursor: pointer;
+}
+
+.shinki-button:active {
+	cursor: pointer;
+}
+
+.login-button {
+	font-family:'ƒqƒ‰ƒMƒmŠpƒS Pro W3', 'Hiragino Kaku Gothic Pro', 'ƒƒCƒŠƒI', 'Meiryo UI', '‚l‚r ‚oƒSƒVƒbƒN', sans-serif;
+	color: #c75078;
+	font-weight: bold;
+	font-size: 1em;
+	-webkit-border-radius: 32px;
+	-moz-border-radius: 32px;
+	border-radius: 32px;
+	width: 40%;
+	background: #FFF;
+	border: 1px solid #c75078;
+	cursor: pointer;
+	text-shadow: 0 1px 0 #FFF;
+	text-align: center;
+	height: 3em;
+}
+
+.login-button:hover {
+	background: #FFF;
+	cursor: pointer;
+}
+
+.login-button:active {
+	cursor: pointer;
+}

@@ -1,0 +1,30 @@
+@CHARSET "utf-8";
+
+/*
+枠外タイトル
+*/
+.tag-title {
+	font-size: 15px;
+	text-shadow: gray;
+	padding-left: 10px;
+	font-weight: normal;
+	margin: 0px;
+	padding: 10px 0px 10px 0px;
+	vertical-align: text-bottom;
+}
+
+.tag-toggled {
+	cursor: default;
+}
+
+.right {
+	margin-left: 10px;
+}
+
+.name {
+	font-weight: bold;
+}
+
+.id {
+	font-size: 11px;
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cronentries>
+
+	<cron>
+		<url>/niwaruka/hashtagFetcher</url>
+		<description>Fetching Hash Tag Entries from Twitter</description>
+		<schedule>every 10 minutes</schedule>
+	</cron>
+	<!-- <cron> <url>/niwaruka/tagUserCount</url> <description>Collects User 
+		Counts for Each Tag.</description> <schedule>every 60 minutes</schedule> 
+		</cron> -->
+	<cron>
+		<url>/niwaruka/mailSend</url>
+		<description>Send Mails in Queue</description>
+		<schedule>every 1 minutes</schedule>
+	</cron>
+
+</cronentries>

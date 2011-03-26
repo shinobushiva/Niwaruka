@@ -1,0 +1,21 @@
+@CHARSET "utf-8";
+.inputHintOverlay {
+	color: #999;
+	font-size: 12px;
+}
+
+.tweet-box {
+	font-family:'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo UI', 'ＭＳ Ｐゴシック', sans-serif;
+	font-size: 0.9em;
+	-moz-border-radius: 4px 4px 4px 4px;
+	-moz-box-shadow: 0 1px #FFF;
+	border: 1px solid #CCC;
+	color: #222;
+	height: 56px;
+	max-width: 482px;
+	outline: medium none;
+	overflow: hidden;
+	padding: 0px;
+	margin: 0px;
+	width: 482px;
+}

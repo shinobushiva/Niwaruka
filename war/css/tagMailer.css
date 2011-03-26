@@ -1,0 +1,108 @@
+@CHARSET "utf-8";
+
+section {
+	padding: 20px 20px 10px 20px;
+}
+
+.boxed {
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	border: 1px solid #C75078;
+	background-color: #FFF;
+	display: block;
+	font-size: 13px;
+	margin: 20px;
+	padding: 5px 5px 5px 5px;
+	text-shadow: 0 1px 0 #FFF;
+}
+
+.inline {
+	display: inline;
+}
+
+.top {
+	margin-top: 0px;
+	height: 30px auto;
+	border: 1px solid #c75078;
+}
+
+.left {
+	margin-top: 0px;
+	margin-right: 0px;
+	height: 220px;
+	width: 500px;
+	float: left;
+	margin-bottom: 0px;
+	border: 1px dashed #c75078;
+}
+
+.right {
+	margin-top: 0px;
+	height: 220px;
+	width: 320px;
+	float: right;
+	margin-bottom: 0px;
+	border: 1px dashed #c75078;
+}
+
+.field_value input {
+	font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', 'Meiryo UI', 'ＭＳ Ｐゴシック', sans-serif;
+	background: #FFF;
+	-webkit-border-radius: 24px;
+	-moz-border-radius: 24px;
+	border-radius: 24px;
+	border-left: 2px solid #c75078;
+	border-right: 2px solid #c75078;
+	border-top: hidden;
+	border-bottom: 1px solid rgba(0, 0, 0, 0);
+	font-size: 1em;
+	text-align: center;
+	vertical-align: middle;
+	width: 14em;
+}
+
+.postButton {
+	background: #FFF;
+	height: 1.5em;
+	font-size: 1em;
+}
+
+.postLabel {
+	background: #FFF;
+	height: 1.2em;
+	font-size: 1em;
+}
+
+.red {
+	color: red;
+}
+
+.tag {
+	line-height: 30px;
+}
+
+.hint {
+	color: #777;
+	font-size: 0s;
+}
+
+.removeTagMailButton{
+	float: right;
+}
+
+#addTagMailButton {
+	float: right;
+	text-align: right;
+}
+/*
+.tagField{
+	background: #fff;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	border: 1px solid #c75078;
+	height: 28px;
+	font-size: 13px;
+}
+*/

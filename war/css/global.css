@@ -1,0 +1,422 @@
+@CHARSET "utf-8";
+
+body {
+	background-color: #FFF;
+	font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ',
+		'Meiryo UI', 'ＭＳ Ｐゴシック', sans-serif;
+	font-size: 1em;
+	color: #000;
+	margin-top: 20px;
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-left: auto;
+	text-align: center;
+	line-height: 1.5em;
+	width: 960px;
+	/* デバッグ用 
+	border-style: solid;
+	border-color: #00F;
+	border-width: 2px; */
+}
+
+header {
+	text-align: left;
+}
+
+section,footer {
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	-webkit-box-shadow: 0px 0px 4px #C75078;
+	-moz-box-shadow: 0px 0px 4px #C75078;
+	box-shadow: 0px 0px 4px #C75078;
+	border: 1px solid #c75078;
+	background-color: #FFF;
+	margin: 5px;
+	padding: 0px 20px 10px 20px;
+	color: #000;
+	text-align: left;
+	overflow: hidden;
+}
+
+section,article {
+	width: 908px;
+	display: inline-block;
+}
+
+footer {
+	clear: both;
+}
+
+nav {
+	width: 960px;
+	margin-bottom: -2em; /* 応急処置？ */
+	list-style: none;
+	text-align: left;
+	float: left;
+}
+
+ul {
+	padding: 0 0 0 5px;
+	list-style: none;
+	text-align: left;
+}
+
+a {
+	text-decoration: none;
+	color: #333;
+	text-shadow: 0 1px 0 #FFF;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #333;
+	text-shadow: 0 1px 0 #FFF;
+}
+
+.title {
+	font-size: 1.1em;
+	font-weight: lighter;
+	color: #000;
+	text-shadow: gray;
+	padding-left: 10px;
+	font-weight: bold;
+	margin: 5px;
+}
+
+.tabs {
+	
+}
+
+.tab {
+	color: #000;
+	padding: 4px;
+	background: #FFE5E5;
+	background: -moz-linear-gradient(top, #FFE5E5 0%, #FFA1A1);
+	background: -webkit-gradient(linear, left top, left bottom, from(#FFE5E5),
+		to(#FFA1A1) );
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border: 1px solid #C75078;
+	-moz-box-shadow: 0px 1px 3px rgba(000, 000, 000, 0.5), inset 0px 0px 2px
+		rgba(255, 255, 255, 1);
+	-webkit-box-shadow: 0px 1px 3px rgba(000, 000, 000, 0.5), inset 0px 0px
+		2px rgba(255, 255, 255, 1);
+	text-shadow: 0px -1px 0px rgba(000, 000, 000, 0.4), 0px 1px 0px
+		rgba(255, 255, 255, 0.3);
+	float: left;
+	text-align: center;
+	width: 228px;
+}
+
+.tab a {
+	position: relative;
+	text-decoration: none;
+	display: block;
+}
+
+.tab a:hover {
+	
+}
+
+/*
+.tab {
+	cursor: pointer;
+	background: #FFE5E5;
+	background: -moz-linear-gradient(top, #FFE5E5, #FFCDCD);
+	background: -webkit-gradient(linear, left top, left bottom, from(#FFE5E5), to(#FFCDCD));
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	padding:4px;
+	float: left;
+	text-align: center;
+	border: 1px solid #c75078;
+	width: 228px;
+} */
+.new-tweets-bar,.twitter-connect {
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	background: none repeat scroll 0 0 rgba(255, 0, 0, 0.1);
+	border: 1px solid #C6E4F2;
+	cursor: pointer;
+	display: block;
+	margin: 0px 0px 10px 0px;
+	padding: 5px 0 5px 5px;
+	text-align: center;
+	text-shadow: 0 1px 0 #FFF;
+	z-index: 2;
+	background-color: rgba(255, 0, 0, 0.1);
+	border-color: rgba(255, 0, 0, 0.15);
+}
+
+.twitter-connect {
+	text-align: left;
+}
+
+.tweet-row {
+	display: block;
+	line-height: 1.2em;
+	position: relative;
+	color: #444;
+}
+
+.tweet-row-name {
+	margin-bottom: 2px;
+}
+
+.tweet-image {
+	float: left;
+	height: 48px;
+	width: 48px;
+	margin-right: 4px;
+	margin-left: 4px;
+	overflow: hidden;
+}
+
+.tweet-block {
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	background: none repeat scroll 0 0 #FFF;
+	/*cursor: pointer;*/
+	display: block;
+	padding: 5px 1px;
+	text-align: left;
+	text-shadow: 0 1px 0 #FFF;
+	border: 1px solid;
+	border-color: #FFF;
+}
+
+.tweet-block:hover {
+	border: 1px solid;
+	background-color: rgba(255, 0, 0, 0.1);
+	border-color: rgba(255, 0, 0, 0.15);
+}
+
+.tweet-content {
+	margin-left: 58px;
+	min-height: 48px;
+}
+
+.tweet-timestamp,.tweet-contributors,.tweet-user-name {
+	color: #999 !important;
+	font-size: 0.8em;
+}
+
+.tweet-user-name {
+	margin-left: 3px;
+	margin-right: 3px;
+}
+
+.tweet-text {
+	line-height: 1em;
+	word-wrap: break-word;
+}
+
+.tweet-name {
+	color: #333 !important;
+	font-weight: bold;
+	margin: 0 2px 2px 0;
+}
+
+.public {
+	-webkit-border-radius: 32px;
+	-moz-border-radius: 32px;
+	border-radius: 32px;
+	background: none repeat scroll 0 0 rgba(255, 0, 0, 0.1);
+	border: 1px solid #c75078;
+}
+
+.twitter {
+	-webkit-border-radius: 32px;
+	-moz-border-radius: 32px;
+	border-radius: 32px;
+	background: none repeat scroll 0 0 rgba(154, 228, 232, 0.5);
+	border: 1px solid #9AE4E8;
+}
+
+.shared {
+	-webkit-border-radius: 32px;
+	-moz-border-radius: 32px;
+	border-radius: 32px;
+	background: none repeat scroll 0 0 rgba(0, 255, 0, 0.1);
+	border: 1px solid #c75078;
+}
+
+.secret {
+	-webkit-border-radius: 32px;
+	-moz-border-radius: 32px;
+	border-radius: 32px;
+	background: none repeat scroll 0 0 rgba(255, 255, 0, 0.1);
+	border: 1px solid #c75078;
+}
+
+/* 発言につける小さいタグ */
+.tag-mini {
+	text-shadow: 0 1px 0 #FFF;
+	font-size: 0.9em;
+	padding: 0px 3px 0px 3px;
+	text-align: center;
+	border: 1px solid #c75078;
+	cursor: default;
+}
+
+.tag-mini a {
+	text-shadow: 0 1px 0 #FFF;
+	font-size: 0.9em;
+	padding: 0px 3px 0px 3px;
+	text-align: center;
+	font-size: 0.8em;
+	text-decoration: none;
+}
+
+.tag {
+	cursor: pointer;
+	text-shadow: 0 1px 0 #FFF;
+	padding: 3px 5px 3px 5px;
+	margin: 0px 2px 4px 2px;
+	text-align: center;
+	font-size: 0.9em;
+}
+
+/* タグ */
+.tag-toggled {
+	cursor: pointer;
+	text-shadow: 0 1px 0 #FFF;
+	font-size: 0.9em;
+	padding: 0px 5px 0px 5px;
+	text-align: center;
+	margin: 0px 2px 4px 2px;
+	position: relative;
+	float: left;
+}
+
+.tag-untoggled {
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	cursor: pointer;
+	text-shadow: 0 1px 0 #FFF;
+	font-size: 0.9em;
+	padding: 0px 5px 0px 5px;
+	text-align: center;
+	margin: 0px 2px 4px 2px;
+	position: relative;
+	background: none repeat scroll 0 0 rgba(255, 255, 255, 1);
+	border: 1px dashed #AAA;
+	float: left;
+}
+
+/* タグのチェックボックスを隠す */
+.hidden-checkbox {
+	visibility: hidden;
+	position: absolute;
+}
+
+/* ロード中表示 */
+.loading-message {
+	text-shadow: 0 1px 0 #FFF;
+	font-size: 0.8em;
+	padding: 0 1px 0 1px;
+	text-align: center;
+	margin: 0px 0px 0px 2px;
+	position: relative;
+	vertical-align: top;
+}
+
+.hidden {
+	visibility: hidden;
+	position: center;
+}
+
+/* なにしてにわるか */
+.nanishite-niwaruka {
+	padding: 10px 0px 10px 0px;
+}
+
+/* 枠外タイトル */
+.title {
+	font-size: 1.2em;
+	font-weight: lighter;
+	text-shadow: gray;
+	padding-left: 10px;
+	font-weight: bold;
+	margin: 5px;
+}
+
+.error {
+	background: #FFF;
+	font-size: 0.8em;
+	margin-top: 10px;
+}
+
+/* ログアウトボタン */
+.logout {
+	text-align: right;
+	position: relative;
+	bottom: 8em;
+}
+
+.logout-button {
+	font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ',
+		'Meiryo UI', 'ＭＳ Ｐゴシック', sans-serif;
+	color: #c75078;
+	font-weight: bold;
+	font-size: 1em;
+	-webkit-border-radius: 32px;
+	-moz-border-radius: 32px;
+	border-radius: 32px;
+	background: #FFF;
+	border: 1px solid #c75078;
+	cursor: pointer;
+	text-shadow: 0 1px 0 #FFF;
+	text-align: center;
+	width: 8em;
+	height: 3em;
+}
+
+.logout-button:hover {
+	background: #FFE5E5;
+	background: -moz-linear-gradient(top, #FFE5E5, #FFB4B4);
+	background: -webkit-gradient(linear, left top, left bottom, from(#FFE5E5),
+		to(#FFB4B4) );
+	cursor: pointer;
+}
+
+.logout-button:active {
+	cursor: pointer;
+}
+
+/* *です */
+.important {
+	color: red;
+	padding: 3px;
+}
+
+/* footer */
+.niwaruka {
+	line-height: 2em;
+	margin-top: 10px;
+	padding-top: 8px;
+	padding-bottom: 12px;
+}
+
+.niwaruka span {
+	text-shadow: 0 1px 0 #FFF;
+}
+
+.niwaruka img {
+	float: right;
+}
+
+
+.tagInfo {
+	font-size: 0.9em;
+}
+
+.tagDblInfo {
+	font-size: 0.6em;
+}
