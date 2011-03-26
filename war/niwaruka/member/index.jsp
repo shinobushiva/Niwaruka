@@ -2,12 +2,16 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="f" uri="http://www.slim3.org/functions"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>にわるか</title>
+
+<fmt:bundle basename="application" />
+
+<title><fmt:message key="msg.niwaruka" /></title>
 <!-- The below script Makes IE understand the new html5 tags are there and applies our CSS to it -->
 <!--[if IE]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -23,13 +27,18 @@
 <link rel="stylesheet" href="/css/index.css" />
 
 <script src="/js/jquery-1.5.1.min.js" type="text/javascript"></script>
+
 <script src="/js/niwaruka.utils.js" type="text/javascript"></script>
 <script src="/js/niwaruka.member.index.js" type="text/javascript"></script>
+
 <script src="/js/jquery.form.js" type="text/javascript"></script>
 <script src="/js/jquery-ui-1.8.11.custom.min.js" type="text/javascript"></script>
 <script src="/js/jquery.timer.js" type="text/javascript"></script>
 <script src="/js/jquery.inputHintOverlay.js" type="text/javascript"></script>
+
 <script type="text/javascript" src="/_ah/channel/jsapi"></script>
+
+<%@ include file="/shared/i18n.jsp"%>
 
 <script type="text/javascript">
 	var gUserId = "${userData.key.id}";
@@ -49,11 +58,11 @@
 		$('#tweetButton').click(function() {
 			tweet();
 		});
-		$('#tweetBox').keydown(function (e) {
-			  if (e.shiftKey && e.keyCode == 13) {
-			    tweet();
-			    return false;
-			  }
+		$('#tweetBox').keydown(function(e) {
+			if (e.shiftKey && e.keyCode == 13) {
+				tweet();
+				return false;
+			}
 		});
 	});
 
@@ -114,13 +123,12 @@
 		});
 	</script>
 </c:forEach>
-
 </head>
 <body>
 	<jsp:include page="/shared/header.jsp">
-		<jsp:param value="ほーむ" name="name" />
+		<jsp:param value="<fmt:message key='msg.home' />" name="name" />
 	</jsp:include>
-	<jsp:include page="/niwaruka/member/nav.jsp" />
+	<%@ include file="/niwaruka/member/nav.jsp" %>
 
 	<%--　通知ボックス --%>
 	<div id="slideDown">
@@ -129,7 +137,9 @@
 			<span id="slideDownContentBody"></span>
 		</div>
 		<div id="slideDownTab">
-			<img src="/resources/niwaruka.png" /><span>おしらせ</span>
+			<img src="/resources/niwaruka.png" /><span><fmt:message
+					key="msg.notifications" />
+			</span>
 		</div>
 
 	</div>
@@ -137,8 +147,10 @@
 	<section>
 		<article>
 			<div class="nanishite-niwaruka">
-				今何して<b>にわるか</b>？<span id="loading-message"
-					class="loading-message hidden">loading...</span>
+				<fmt:message key='msg.how.niwaruka' />
+				<span id="loading-message" class="loading-message hidden"><fmt:message
+						key='msg.loading' />
+				</span>
 			</div>
 
 			<%--タグの切り替えフォーム --%>
@@ -193,8 +205,9 @@
 			<%-- 発言ボックス --%>
 			<div class="tweet-box-div">
 				<form id="tweetForm" action="tweet" method="post">
-					<textarea id="tweetBox" title="いまなにしてる？" class="tweet-box" name="tweet"></textarea>
-					<input id="tweetButton" type="button" value="にわるかる" />
+					<textarea id="tweetBox" title="<fmt:message key='msg.what.doing' />" class="tweet-box"
+						name="tweet"></textarea>
+					<input id="tweetButton" type="button" value="<fmt:message key='msg.do.niwaruka' />" />
 				</form>
 			</div>
 		</article>
@@ -209,11 +222,11 @@
 			<p id="message"></p>
 			<div id="older-tweets-bar" class="new-tweets-bar hidden"
 				onclick="fetchOlderTweets();">
-				<span>もっと読む</span>
+				<span><fmt:message key='msg.read.more' /></span>
 			</div>
 		</article>
 	</section>
 
-	<jsp:include page="/shared/footer.jsp" />
+	<%@ include file="/shared/footer.jsp"%>
 </body>
 </html>

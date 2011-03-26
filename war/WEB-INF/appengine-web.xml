@@ -14,6 +14,7 @@
 	<sessions-enabled>true</sessions-enabled>
 	<resource-files>
 		<include path="/**.png" />
+		<include path="/**.properties" />
 	</resource-files>
 	<inbound-services>
 		<service>mail</service>

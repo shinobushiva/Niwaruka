@@ -30,7 +30,6 @@ public class LoginController extends Controller {
         BeanUtil.copy(request, form);
 
         if (loginService.authorize(form.getName(), form.getPasswd())) {
-            sessionScope("login", "isLogin");
             sessionScope(USER_ID_SESSION_KEY, form.getName());
 
             User user = loginService.getUser(form.getName());

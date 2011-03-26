@@ -2,6 +2,7 @@ package niwaruka.controller.niwaruka;
 
 import javax.servlet.http.Cookie;
 
+import niwaruka.controller.niwaruka.login.LoginController;
 import niwaruka.model.User;
 import niwaruka.service.LoginService;
 
@@ -18,7 +19,7 @@ public class IndexController extends Controller {
     @Override
     public Navigation run() throws Exception {
 
-        if (sessionScope("login") != null) {
+        if (sessionScope(LoginController.USER_ID_SESSION_KEY) != null) {
             return forward("/niwaruka/member");
         }
 

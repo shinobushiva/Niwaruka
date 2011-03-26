@@ -2,6 +2,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="f" uri="http://www.slim3.org/functions"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -15,6 +16,8 @@
 <script src="/js/jquery-1.4.3.js" type="text/javascript"></script>
 <script type="text/javascript" src="/js/jquery-ui-1.8.6.custom.min.js"></script>
 <script type="text/javascript" src="/js/jquery.qtip-1.0.0-rc3.min.js"></script>
+
+<%@ include file="/shared/i18n.jsp" %>
 
 <c:forEach var="e" items="${tags}">
 	<script type="text/javascript">
@@ -261,14 +264,13 @@ function post(){
 }
 </script>
 
-<title>たぐまねーじゃ</title>
+<title><fmt:message key='msg.tagmanager' /></title>
 </head>
 <body>
 	<jsp:include page="/shared/header.jsp">
-		<jsp:param value="たぐまねーじゃ" name="name" />
+		<jsp:param value="<fmt:message key='msg.tagmanager' />" name="name" />
 	</jsp:include>
-
-	<jsp:include page="/niwaruka/member/nav.jsp" />
+	<%@ include file="/niwaruka/member/nav.jsp"%>
 
 	<section id="tagAreas">
 		<article>
@@ -339,6 +341,6 @@ function post(){
 		</article>
 	</section>
 
-	<jsp:include page="/shared/footer.jsp" />
+	<%@ include file="/shared/footer.jsp"%>
 </body>
 </html>

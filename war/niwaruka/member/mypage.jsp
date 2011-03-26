@@ -2,13 +2,14 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="f" uri="http://www.slim3.org/functions"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt"%>
 
 
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>にわるか</title>
+<title><fmt:message key='msg.mypage' /></title>
 <!-- The below script Makes IE understand the new html5 tags are there and applies our CSS to it -->
 <!--[if IE]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -17,6 +18,9 @@
 <meta name="Content-Style-Type" content="text/css" />
 <script src="/js/jquery-1.4.3.js" type="text/javascript"></script>
 <script src="/js/password_strength_plugin.js" type="text/javascript"></script>
+
+<%@ include file="/shared/i18n.jsp"%>
+
 <link rel="stylesheet" href="/css/reset.css" />
 <link rel="stylesheet" href="/css/global.css" />
 <link rel="stylesheet" href="/css/mypage.css" />
@@ -37,11 +41,9 @@
 </head>
 <body>
 <jsp:include page="/shared/header.jsp" flush="true">
-	<jsp:param value="まいぺーじ" name="name" />
+	<jsp:param value="<fmt:message key='msg.mypage' />" name="name" />
 </jsp:include>
-
-
-<jsp:include page="/niwaruka/member/nav.jsp" />
+<%@ include file="/niwaruka/member/nav.jsp"%>
 
 <section>
 <article class="mypage">
@@ -123,5 +125,5 @@
 </c:if></article>
 </section>
 
-<jsp:include page="/shared/footer.jsp" />
+	<%@ include file="/shared/footer.jsp"%>
 </html>

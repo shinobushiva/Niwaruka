@@ -26,12 +26,14 @@ function tweet() {
 		tags+=""+sss+"&";
 	});
 	
+	var dd = f.serialize()+"&"+tags
+	clearForm($(f));
+	
 	$.ajax({
 		type : 'post',
 		url : '/niwaruka/member/tweetJson',
-		data : f.serialize()+"&"+tags,
+		data : dd,
 		success : function(json) {
-			clearForm($(f));
 			refresh();
 		}
 	});
@@ -54,8 +56,7 @@ function updateCheck() {
 
 					ntb.children('span').remove();
 					var text = "<span>";
-					// text += "新しいつぶやきが" + json.newTweets + "件あります"
-					text += "新しいつぶやきがあります！"
+					text += MSG_NEW_TWEET
 					text += "</span>"
 					$(text).appendTo('#new-tweets-bar');
 					shouldCheck = false;
@@ -68,7 +69,7 @@ function updateCheck() {
 
 						ntb.children('span').remove();
 						var text = "<span>";
-						text += "新しいつぶやきを確認"
+						text += MSG_CHK_NEW_TWEET
 						text += "</span>"
 						$(text).appendTo('#new-tweets-bar');
 					}
@@ -118,11 +119,10 @@ function requestJson(json) {
 					+ "<form action='tagRequestDetermine'>"
 					+ "<div class='tag-request'>"
 					+ "<div>"
-
-					+ request.requester.model.userName
-					+ "さんから "
-					+ toTagMini(request.tag.model, request.tag.model.tag,
-							null) + " タグの使用がリクエストされています" + "</div>";
+					+ MSG_TAG_REQUESTED(request.requester.model.userName, 
+							toTagMini(request.tag.model, request.tag.model.tag,null)
+					)
+					+ "</div>";
 			if (request.comment != null) {
 				str += "<div class='comment'>" + request.comment + "</div>";
 			}
@@ -147,7 +147,7 @@ function requestJson(json) {
 								$('#entry-' + s).remove();
 								if ($('#div').find('li').length == 0) {
 									$(
-											"<span class='tag-request'>お知らせはありません</span>")
+											"<span class='tag-request'>"+MSG_NO_NOTIFICATIONS+"</span>")
 											.appendTo($('#div'));
 								}
 							}
@@ -166,7 +166,7 @@ function requestJson(json) {
 						$('#entry-' + s).remove();
 
 						if ($('#div').find('li').length == 0) {
-							$("<span class='tag-request>お知らせはありません</span>")
+							$("<span class='tag-request>"+MSG_NO_NOTIFICATIONS+"</span>")
 									.appendTo($('#div'));
 						}
 					}
@@ -184,7 +184,7 @@ function requestJson(json) {
  * @param id
  */
 function remove(id){
-	confirmDialog('本当に削除しますか？', '確認', 'OK', 'キャンセル',
+	confirmDialog(MSG_DELETE_CONFIRM, MSG_CONFIRM, MSG_OK, MSG_CANCEL,
 		      function(cancel){
 		        if (cancel) return;
 		        $.ajax({
@@ -209,27 +209,40 @@ function reply(id){
 	if(box.children("form").length == 0){
 		var form = $("<form action='#' id='form-"+id+"'>" +
 				"<input type='hidden' name='id' value='"+id+"'>" +
-				"<textarea class='tweet-box' name='tweet' title='メッセージ？'></textarea></form>");
+				"<textarea class='tweet-box' name='tweet' title='"+MSG_MESSAGE+"'></textarea></form>");
 		//リプライボタン
-		var button = $("<input type='button' value='りぷらい'/>");
-		button.click(function(){
-			$(function() {
-				$.ajax({
-					type : 'post',
-					url : '/niwaruka/member/replyJson',
-					data : form.serialize(),
-					success : (function(){
-						// box.slideUp("normal");
-						refresh();
-					})
-				});
+		var button = $("<input type='button' value='"+MSG_REPLY+"'/>");
+		
+		var func = function(){
+	  		//何も入力されていないときは無視
+	  		if(!form.children("textarea").val())
+	  			return false;
+	  		
+	  		var fd = form.serialize();
+	  		clearForm(form);
+	  		
+			$.ajax({
+				type : 'post',
+				url : '/niwaruka/member/replyJson',
+				data : fd,
+				success : (function(){
+					refresh();
+				})
 			});
-		});
+		}
+		
+		button.click(func);
 		button.appendTo(form);
 		form.appendTo(box);
-// form.ready(function(){
-// form.inputHintOverlay(5, 7);
-// });
+		
+		form.ready(function(){
+			$(this).keydown(function (e) {
+			  if (e.shiftKey && e.keyCode == 13) {
+				  	func();
+				    return false;
+				  }
+			});
+		});
 	}
 	
 	if (box.is(":hidden")) {

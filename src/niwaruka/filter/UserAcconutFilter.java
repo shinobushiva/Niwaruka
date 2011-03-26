@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import niwaruka.controller.niwaruka.login.LoginController;
+
 public class UserAcconutFilter implements Filter {
 
     public void init(FilterConfig arg0) throws ServletException {
@@ -24,23 +26,23 @@ public class UserAcconutFilter implements Filter {
             String target = ((HttpServletRequest) request).getRequestURI();
             HttpSession session = ((HttpServletRequest) request).getSession();
 
-//            System.out.println("dofilter : "+target);
-            
+            // System.out.println("dofilter : " + target);
+
             if (session == null) {
                 /* まだ認証されていない */
                 session = ((HttpServletRequest) request).getSession(true);
                 session.setAttribute("target", target);
 
-                ((HttpServletResponse) response)
-                    .sendRedirect("/niwaruka");
+                ((HttpServletResponse) response).sendRedirect("/niwaruka");
                 return;
             } else {
-                Object loginCheck = session.getAttribute("login");
+                Object loginCheck =
+                    session.getAttribute(LoginController.USER_ID_SESSION_KEY);
+                // System.out.println(loginCheck);
                 if (loginCheck == null) {
                     /* まだ認証されていない */
                     session.setAttribute("target", target);
-                    ((HttpServletResponse) response)
-                        .sendRedirect("/niwaruka");
+                    ((HttpServletResponse) response).sendRedirect("/niwaruka");
                     return;
                 }
             }

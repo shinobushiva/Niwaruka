@@ -29,9 +29,9 @@ public class IndexController extends Controller {
         User user =
             ls
                 .getUser((String) sessionScope(LoginController.USER_ID_SESSION_KEY));
-        requestScope("userData", ls.getUserData(user));
-
         if (user != null) {
+            requestScope("userData", ls.getUserData(user));
+
             List<Tag> list = Datastore.get(Tag.class, user.getTags());
             requestScope("tags", list);
 
@@ -42,9 +42,9 @@ public class IndexController extends Controller {
                 requestScope("disabledTags", tl);
             }
             requestScope("enabledTags", cl);
-        }
 
-        ts.fetchFromTwitter(user.getName(), tweetService, ls);
+            ts.fetchFromTwitter(user.getName(), tweetService, ls);
+        }
 
         return forward("index.jsp");
     }

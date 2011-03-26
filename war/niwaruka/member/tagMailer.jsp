@@ -1,4 +1,5 @@
 <%@page pageEncoding="UTF-8" isELIgnored="false" session="false"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="f" uri="http://www.slim3.org/functions"%>
@@ -16,6 +17,8 @@
 <script type="text/javascript" src="/js/jquery-ui-1.8.6.custom.min.js"></script>
 <script type="text/javascript" src="/js/jquery.qtip-1.0.0-rc3.min.js"></script>
 <script src="/js/niwaruka.utils.js" type="text/javascript"></script>
+
+<%@ include file="/shared/i18n.jsp" %>
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -303,13 +306,14 @@ function post(){
 }
 </script>
 
-<title>めーらー</title>
+<title><fmt:message key='msg.tagmailer' /></title>
 </head>
 <body>
 	<jsp:include page="/shared/header.jsp">
-		<jsp:param value="めーらー" name="name" />
+		<jsp:param value="<fmt:message key='msg.tagmailer' />" name="name" />
 	</jsp:include>
-	<jsp:include page="/niwaruka/member/nav.jsp" />
+	<%@ include file="/niwaruka/member/nav.jsp"%>
+	
 	<section id="tagAreas">
 		<article>
 
@@ -366,6 +370,6 @@ function post(){
 		</article>
 	</section>
 
-	<jsp:include page="/shared/footer.jsp" />
+	<%@ include file="/shared/footer.jsp"%>
 </body>
 </html>

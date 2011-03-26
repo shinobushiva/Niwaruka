@@ -129,10 +129,9 @@ function makeTweetBlock(t,  noModify){
 	if (t.client != null) {
 		var client = t.client;
 		if (t.twitterUser != null)
-			client = t.twitterUser + "が" + t.client;
+			client = MSG_TWEET_WITH(t.twitterUser,t.client);
 		text += '<div class="tweet-row"><span class="tweet-timestamp">'
 				+ toTimeText(new Date(t.time))	+" : "+ client
-				+ "で発言 "
 				+ "</span>";
 	} else {
 		text += '<div class="tweet-row">'
@@ -161,7 +160,7 @@ function makeTweetBlock(t,  noModify){
 
 function tippingWithText(sp, txt, id){
 	// txt = txt+'<div class="tagDblInfo">ダブルクリックでタグのページが開きます<div>';
-	txt = txt+'<div class="tagDblInfo"><a href="/niwaruka/tag/'+id+'">タグのページを開く</a><div>';
+	txt = txt+'<div class="tagDblInfo"><a href="/niwaruka/tag/'+id+'">'+MSG_OPEN_TAG_PAGE+'</a><div>';
 	sp.qtip({
 		   position: { 
 			   target: 'mouse',
@@ -190,13 +189,13 @@ function tippingWithText(sp, txt, id){
 function tipping(sp, t){
 	txt = "";
 	if(t.tag.indexOf("#") == 0){
-		txt = '<span class="tagInfo">'+'ハッシュタグ'+'</span>';
+		txt = '<span class="tagInfo">'+MSG_HASH_TAG+'</span>';
 	}else if(!t.creatorRef.model){
-   	    txt = '<span class="tagInfo">'+'公開タグ'+'</span>';
+   	    txt = '<span class="tagInfo">'+MSG_PUBLIC_TAG+'</span>';
 	}else if(t.access.indexOf("sharedTag")!=-1){
-   	    txt = '<span class="tagInfo">'+'共有タグ : '+t.creatorRef.model.name+'</span>';
+   	    txt = '<span class="tagInfo">'+MSG_SHARED_TAG+' : '+t.creatorRef.model.name+'</span>';
 	}else if(t.access.indexOf("secretTag")!=-1){
-   	    txt = '<span class="tagInfo">'+'秘密タグ : '+t.creatorRef.model.name+'</span>';
+   	    txt = '<span class="tagInfo">'+MSG_SECRET_TAG+' : '+t.creatorRef.model.name+'</span>';
 	}
 	tippingWithText(sp, txt, t.key.id);
 }
