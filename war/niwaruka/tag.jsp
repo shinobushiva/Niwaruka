@@ -2,6 +2,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="f" uri="http://www.slim3.org/functions"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -26,6 +27,8 @@
 <script src="/js/niwaruka.utils.js" type="text/javascript"></script>
 <script src="/js/niwaruka.tag.js" type="text/javascript"></script>
 
+<%@ include file="/shared/i18n.jsp"%>
+
 <script type="text/javascript">
 	$(document).ready(function() {
 		getTweets(${tag.key.id});
@@ -37,7 +40,7 @@
 <jsp:include page="/shared/header.jsp" />
 
 <c:if test="${user != null}">
-	<jsp:include page="/niwaruka/member/nav.jsp" />
+	<%@ include file="/niwaruka/member/nav.jsp" %>
 </c:if>
 
 <section>
@@ -124,5 +127,5 @@
 </article>
 </section>
 
-<jsp:include page="/shared/footer.jsp" />
+	<%@ include file="/shared/footer.jsp"%>
 </html>
