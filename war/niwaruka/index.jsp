@@ -32,7 +32,7 @@
 <span>にわるかは同じタグを持っている人達の間でつぶやきを共有できるサービスです。</span>
 <form action="login/userRegistrationForm" method="post">
 	<input class="shinki-button" type="submit" value="新規アカウント登録"></form>
-	<p style="margin-left: 10px;"><a href="introduction.html" title="にわるかとは？" target="_self" style="color: #E06; text-decoration: underline;">にわるかとは？</a></p>
+	<p style="margin-left: 10px;"><a href="introduction" title="にわるかとは？" target="_self" style="color: #E06; text-decoration: underline;">にわるかとは？</a></p>
 </article>
 
 <article id="login">
