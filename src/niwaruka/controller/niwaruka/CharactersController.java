@@ -7,6 +7,6 @@ public class CharactersController extends Controller {
 
     @Override
     public Navigation run() throws Exception {
-        return redirect("characters.jsp");
+        return forward("characters.jsp");
     }
 }
